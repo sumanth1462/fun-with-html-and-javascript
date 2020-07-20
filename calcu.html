@@ -1,0 +1,49 @@
+<!DOCTYPEhtml>
+<html>
+<head>
+<title>Basic calculator</title>
+    <script>
+    function cal(val)
+    {
+    var val1=val;
+    var a=Number(document.getElementById("num1").value);
+    var b=Number(document.getElementById("num2").value);
+    var c
+    if(val1=="+")
+    {
+        c=a+b;
+        document.getElementById("res").innerHTML="Addition of "+a+" and "+b+" is : "+c;
+    }
+    else if(val1=="-")
+    {
+        c=a-b;
+        document.getElementById("res").innerHTML="Subtraction of "+a+" and "+b+" is : "+c;
+    }
+    else if(val1=="*")
+    {
+        c=a*b;
+        document.getElementById("res").innerHTML="Multiplication of "+a+" and "+b+" is : "+c;
+    }
+    else if(val1=="/")
+    {
+        c=a/b;
+        document.getElementById("res").innerHTML="Division of "+a+" and "+b+" is : "+c;
+    }
+    }
+    </script>
+</head>
+<body>
+    <center><form>
+    <label>Enter value : </label>
+    <input type="number" name="num1" required id="num1"><br/>
+    <label>Enter value : </label>
+    <input type="number" id="num2" required><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="cal('+')">+</button>
+    <button onclick="cal('*')">*</button>
+    <button onclick="cal('-')">-</button>
+    <button onclick="cal('/')">/</button><br/>
+    <!--<input type="text" id="res">-->
+    <output id="res"></output>
+    </form></center>
+</body>
+</html>
