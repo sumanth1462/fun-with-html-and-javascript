@@ -27,11 +27,21 @@ function calc()
     }
 }
 </script>
+<style>
+    #e1
+    {
+        font-size:30px;   
+    }
+    #i1
+    {
+        border-radius:30px;   
+    }
+</style>
 </head>
 <body>
 <center><form>
-<label>Enter a number : </label>
-<input type="number" required id="num1">
+<label id="e1">Enter a number : </label>
+<input id="i1" type="number" required id="num1">
 <button type="button" onclick="calc()">!</button><br/>
 <output id="res"></output>
 </form></center>
