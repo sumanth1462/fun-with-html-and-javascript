@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		body{
+			background: skyblue;
+			margin-top: 50px;
+		}
+		.holder{
+			background: whitesmoke;
+			padding: 20px;
+			width: 450px;
+		}
+		.holder>#text{
+
+			min-height: 200px;
+			min-width: 400px;
+			max-width: 400px;
+			max-height: 200px;
+			font-size: 20px;
+
+		}
+
+	</style>
+</head>
+<body>
+	<center>
+<div class="holder">
+<textarea rows="8" cols="20" id="text" onkeyup="countLetter()"></textarea>
+<div>No of letters:<span id="count">0</span></div>
+<div>Remmaining letters:<span id="count1">20</span></div></center>
+</div>
+<script type="text/javascript">
+	function countLetter(){
+		var a=document.getElementById("text").value;
+		document.getElementById("count").innerHTML=a.length;
+		var b=20;
+		var d= a.length;
+		var c= b-d;
+		document.getElementById("count1").innerHTML=c;
+		if(a.length==20){
+			alert("you reached character limit");
+			document.getElementById("text").disabled="disabled";
+		}
+		
+	}
+</script>
+</body>
+</html>
