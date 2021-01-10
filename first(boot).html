@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap/bootstrap-5.0.0/css/bootstrap.min.css" rel="stylesheet" >
+
+    <title>Cyclicity of a Number</title>
+    <style>
+      .custom{
+        text-align: center;
+        background: silver;
+        margin: 3px;
+        min-height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+  	<div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="custom">
+      <form onsubmit="return false;">
+  		<label style="font-size: 30px;">Enter a Number</label><br/><br/>
+  		<input type="text" id="numb" name="numb"><br/><br/>
+      <button type="submit" onclick="cyclicity()" class="btn btn-primary">Submit</button>
+    </form>
+    <br/>
+    <div id="result" style="font-size: 30px;"></div><br/>
+    <button class="btn btn-secondary" onclick="expl()">Explanation</button><br/><br/>
+    <div id="exp"></div>
+    </div>
+  </div>
+</div>
+  	</div>
+  	<script type="text/javascript">
+      var a1=[]
+      function cyclicity(){
+        var a=document.getElementById("numb").value;
+        if(isNaN(a)||a==""){
+          alert("enter a number");
+        }
+        else{
+          var arr=[];
+      
+          var c=1;
+          var count=1;
+          while(c<=5){
+            var b=Math.pow(a,c);
+            a1.push(b);
+            arr.push(b);
+            c=c+1;
+          }
+      
+            
+          for(let i=1;i<arr.length;i++){
+            let last=arr[i]%10;
+            let l1=arr[0]%10;
+            if(l1==last){
+              break;
+            }
+            else{
+              count++;
+            }
+
+          }
+          document.getElementById("result").innerHTML="Cyclicity of "+a+" is: "+count;
+        
+
+        }
+      }
+      function expl(){
+        if(a1.length==0){
+          document.getElementById("exp").innerHTML="Submit a number to know the eplanation";
+        }
+        /*else if(a1.length>5){
+          document.getElementById("exp").innerHTML="";
+        for(let i=5;i<a1.length;i++){
+          document.getElementById("exp").innerHTML+=a1[i]+"<br/>";
+          }
+        }*/
+        else{
+            document.getElementById("exp").innerHTML="";
+        for(let i=0;i<a1.length;i++){
+          document.getElementById("exp").innerHTML+=a1[i]+"<br/>";
+        }
+      }
+      a1=[];
+      }
+  	</script>
+  </body>
+</html>
