@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>quiz game</title>
+    <style>
+
+      .custom{
+        background: grey;
+        margin:10px;
+        min-height: 300px;
+      }
+      .head{
+        margin: 0px;
+        background:linear-gradient(orange,yellow);
+        font-size: 20px; 
+        padding: 5px;
+      }
+      .abc{
+        background: red;
+        border-radius: 25px;
+        padding: 3px;
+
+      }
+      #a1{
+        border-radius: 25px;
+        background:white;
+        padding: 5px;
+        margin: 2px;
+        cursor: pointer;
+      }
+      #a2{
+        border-radius: 25px;
+        background:white;
+        padding: 5px;
+        margin: 2px;
+        cursor: pointer;
+      }
+      #a3{
+        border-radius: 25px;
+        background:white;
+        padding: 5px;
+        margin: 2px;
+        cursor: pointer;
+      }
+      #a4{
+        border-radius: 25px;
+        background:white;
+        padding: 5px;
+        margin: 2px;
+        cursor: pointer;
+      }
+      .close{
+        visibility: hidden;
+        margin: 2px;
+
+      }
+      #ques-box{
+        margin:10px;
+        background: white;
+        padding: 5px;
+      }
+      .opt-box{
+        margin:10px;
+        padding: 10px;
+      }
+      #res{
+        visibility: hidden;
+        background: grey;
+        margin:10px;
+        min-height: 300px;
+        top:0px;
+      }
+      #cor{
+          min-height: 150px;
+          background: white;
+          margin: 10px;
+      }
+      #wron{
+        min-height: 150px;
+          background: white;
+          margin: 10px;
+      }
+      #btn1{
+        border: none;
+        border-radius: 25px;
+        outline: none;
+        font-size: 20px;
+        margin: 0px;
+      }
+      #btn2{
+        border: none;
+        border-radius: 25px;
+        outline: none;
+        font-size: 20px;
+        margin: 0px;
+      }
+      .foot{
+        margin: 4px;
+      }
+      #ans{
+        visibility: hidden;
+        background: grey;
+        margin:10px;
+        min-height: 300px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="start">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="custom">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="head"><span class="abc">Question:<span id="counter">1</span><span id="total"></span></span></div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"><div id="ques-box"></div></div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"><div class="opt-box">
+              <div class="opt" id='a1' onclick="check(1)"></div>
+              <div class="opt" id='a2' onclick="check(2)"></div>
+              <div class="opt" id='a3' onclick="check(3)"></div>
+              <div class="opt" id='a4' onclick="check(4)"></div>
+            </div></div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <center><div class="foot"><button id="btn1" class="btn btn-info" onclick="count()">Skip</button></div></center>
+            </div>
+            <div class="col-md-6">
+             <center> <div class="close"><button id="btn2" class="btn btn-success" onclick="show()">Finish</button></div></center>
+            </div>
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div id="res">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div id="cor">
+                      <center><div class="h1">Correct</div>
+                        <div class="sol h2"><span id="c1"></span><span id="c2"></span></div>
+                      </center>
+
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div id="wron">
+                      <center><div class="h1">Wrong</div>
+                      <div class="sol h2"><span id="w1"></span><span id="w2"></span></div></center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <center><div class="btn btn-success" onclick="display()">Answers</div></center>
+              </div>
+            </div>
+  </div>
+  <div id="ans">
+    <div class="row">
+      <div class="col-md-12">
+        <pre>
+          <h3>The format identifier ‘%i’ is also used for _____ data type.</h3>
+          <h4>char</h4>
+          <h4>int</h4>
+          <h4>float</h4>
+          <h4>double</h4>
+          <div class="h4">Answer:<span>int</span></div>
+          <h3>Which number should come next in the pattern? 37,34,31,28</h3>
+          <h4>38</h4>
+          <h4>30</h4>
+          <h4>32</h4>
+          <h4>25</h4>
+          <div class="h4">Answer:<span>32</span></div>
+          <h3>A bank offers 5% compound interest calculated on half-yearly basis. A customer deposits Rs. 1600 each on 1st January and 1st July of a year. At the end of the year, the amount he would have gained by way of interest is:</h3>
+          <h4>Rs. 120</h4>
+          <h4>Rs. 121</h4>
+          <h4>Rs. 122</h4>
+          <h4>Rs. 123</h4>
+          <div class="h4">Answer:<span>121</span></div>
+          <h3>The H.C.F. of two numbers is 23 and the other two factors of their L.C.M. are 13 and 14. The larger of the two numbers is:</h3>
+          <h4>276</h4>
+          <h4>299</h4>
+          <h4>322</h4>
+          <h4>345</h4>
+          <div class="h4">Answer:<span>322</span></div>
+          <h3>A person sells a horse at 12.5% loss. If he sells for 92.5 more, he will have a profit of 6%. What is the CP?</h3>
+          <h4>250</h4>
+          <h4>500</h4>
+          <h4>750</h4>
+          <h4>550</h4>
+          <div class="h4">Answer:<span>250</span></div>
+        </pre>
+      </div>
+    </div>
+  </div>
+    <script type="text/javascript">
+      const ques=[
+{
+  q:'The format identifier ‘%i’ is also used for _____ data type.',
+  options:['char','int','float','double'],
+  answer:2
+
+},
+{
+  q:'Which number should come next in the pattern? 37,34,31,28',
+  options:['38','30','32','25'],
+  answer:3
+
+},
+{
+  q:'A bank offers 5% compound interest calculated on half-yearly basis. A customer deposits Rs. 1600 each on 1st January and 1st July of a year. At the end of the year, the amount he would have gained by way of interest is:',
+  options:['Rs. 120','Rs. 121','Rs. 122','Rs. 123'],
+  answer:2
+
+},
+{
+  q:'The H.C.F. of two numbers is 23 and the other two factors of their L.C.M. are 13 and 14. The larger of the two numbers is:',
+  options:['276','299','322','345'],
+  answer:3
+
+},
+{
+  q:'A person sells a horse at 12.5% loss. If he sells for 92.5 more, he will have a profit of 6%. What is the CP?',
+  options:['250','500','750','550'],
+  answer:1
+
+}
+]
+
+  var ab=document.getElementsByClassName("opt");
+  //alert(ab.length);
+  //initial
+  document.getElementById("total").innerHTML="/"+ques.length;
+  document.getElementById("ques-box").innerHTML=ques[0].q;
+  document.getElementById("a1").innerHTML=ques[0].options[0];
+  document.getElementById("a2").innerHTML=ques[0].options[1];
+  document.getElementById("a3").innerHTML=ques[0].options[2];
+  document.getElementById("a4").innerHTML=ques[0].options[3];
+  let i=0;
+  
+  let correct=0;
+  let wrong=0;
+  //check
+  
+      //counter
+      let c=1;
+
+      function count(){
+        if(c==(ques.length-1)){
+          
+          document.getElementById("btn1").style.visibility="hidden";
+          document.getElementById("btn2").style.visibility="visible";
+
+        }
+        if(c<ques.length){
+          c=c+1;
+          document.getElementById("counter").innerHTML=c;
+        }
+        i=i+1;
+        if(i!=ques.length){
+          document.getElementById("ques-box").innerHTML=ques[i].q;
+          document.getElementById("a1").innerHTML=ques[i].options[0];
+          document.getElementById("a2").innerHTML=ques[i].options[1];
+          document.getElementById("a3").innerHTML=ques[i].options[2];
+          document.getElementById("a4").innerHTML=ques[i].options[3];
+          document.getElementById("a1").style.background="white";
+          document.getElementById("a2").style.background="white";
+          document.getElementById("a3").style.background="white";
+          document.getElementById("a4").style.background="white";
+         
+        }
+
+        
+      }
+      function check(n){
+          ab[n-1].style.background="blue";
+          if(n==ques[i].answer){
+            correct=correct+1;
+            setTimeout(function(){count();},2000);
+            
+          }
+          else{
+            wrong=wrong+1;
+            setTimeout(function(){count();
+            },2000);
+          }
+        }
+      function show(){
+        //document.getElementById("close").style.visibility="hidden";
+        document.getElementById("start").innerHTML="";
+        document.getElementById("res").style.visibility="visible";
+        document.getElementById("c1").innerHTML=correct;
+        document.getElementById("c2").innerHTML="/"+ques.length;
+        document.getElementById("w1").innerHTML=wrong;
+        document.getElementById("w2").innerHTML="/"+ques.length;
+        //document.write("work");
+      }
+      function display(){
+        document.getElementById("ans").style.visibility="visible";
+      }
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
